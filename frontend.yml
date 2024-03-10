@@ -7,6 +7,10 @@
         name: nginx
         state: latest
 
+    - name: Copy file of expense conf
+      ansible.builtin.copy:
+        src: expense.conf
+        dest: /etc/nginx/default.d/expense.conf &>>/tmp/expense.log
 
     - name: enable nginx
       ansible.builtin.service:
