@@ -10,7 +10,7 @@
     - name: Copy file of expense conf
       ansible.builtin.copy:
         src: expense.conf
-        dest: /etc/nginx/default.d/expense.conf &>>/tmp/expense.log
+        dest: /etc/nginx/default.d/expense.conf
 
     - name: enable nginx
       ansible.builtin.service:
