@@ -17,6 +17,11 @@
         name: nginx
         state: started
 
+    - name: Create a directory
+      ansible.builtin.file:
+        path: /usr/share/nginx/html
+        state: directory
+
     - name: cleaning directory
       ansible.builtin.file:
         path: /usr/share/nginx/html
