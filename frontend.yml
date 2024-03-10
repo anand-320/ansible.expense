@@ -30,7 +30,7 @@
 
     - name: download content
       ansible.builtin.unarchive:
-        src: /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/frontend.zip
+        src: https://expense-artifacts.s3.amazonaws.com/expense-${component}-v2.zip
         dest: /usr/share/nginx/html
         remote_src: yes
 
