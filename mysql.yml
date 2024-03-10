@@ -6,3 +6,8 @@
       ansible.builtin.dnf:
         name: mysql-server
         state: latest
+
+    - name: start mysql
+      ansible.builtin.service:
+        name: mysql
+        state: restarted
