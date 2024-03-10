@@ -10,9 +10,26 @@
     - name: Copy file of expense conf
       ansible.builtin.copy:
         src: expense.conf
-        dest: /etc/nginx/default.d/expense.conf &>>/tmp/expense.log
+        dest: /etc/nginx/default.d/expense.conf
 
     - name: enable nginx
       ansible.builtin.service:
         name: nginx
         state: started
+
+    - name: cleaning directory
+      ansible.builtin.file:
+        path: /usr/share/nginx/html/*
+        state: absent
+
+
+    - name: download content
+      ansible.builtin.unarchive:
+        src: /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/frontend.zip
+        dest: /usr/share/nginx/html/*
+        remote_src: yes
+
+    - name: enable nginx
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
