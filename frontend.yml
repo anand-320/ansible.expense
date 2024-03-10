@@ -19,14 +19,14 @@
 
     - name: cleaning directory
       ansible.builtin.file:
-        path: /usr/share/nginx/html/*
+        path: /usr/share/nginx/html
         state: absent
 
 
     - name: download content
       ansible.builtin.unarchive:
         src: /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/frontend.zip
-        dest: /usr/share/nginx/html/*
+        dest: /usr/share/nginx/html
         remote_src: yes
 
     - name: enable nginx
