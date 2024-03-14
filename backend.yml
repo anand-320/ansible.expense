@@ -34,14 +34,14 @@
         dest: /app
         remote_src: yes
 
-    - name: Udownload nodejs dependency
+    - name: download nodejs dependency
       community.general.npm:
         path: /app
         state: latest
 
-    - name: copy backend.servicefile
+    - name: copy backend.service file
       ansible.builtin.copy:
-        scr: backend.service
+        src: backend.service
         dest: /etc/systemd/system/backend.service
 
     - name: install mysql client
