@@ -8,7 +8,7 @@
     - name: enable nodejs:20
       ansible.builtin.service:
         name: nodejs
-        state: started
+        state: installed
 
     - name: install nodejs
       ansible.builtin.dnf:
