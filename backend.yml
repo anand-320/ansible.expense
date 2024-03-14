@@ -1,0 +1,21 @@
+- name: backend setup
+  hosts: all
+  become: true
+  tasks:
+    - name: disable nodejs -y
+      community.general.dnf_config_manager:
+        name: nodejs
+        state: disable
+
+
+
+
+
+
+
+
+
+
+
+
+  
