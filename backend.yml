@@ -3,19 +3,66 @@
   become: true
   tasks:
     - name: disable nodejs -y
-      community.general.dnf_config_manager:
+      ansible.builtin.shell: dnf module disable nodejs -y
+
+    - name: enable nodejs:20
+      ansible.builtin.service:
         name: nodejs
-        state: disable
+        state: started
+
+    - name: install nodejs
+      ansible.builtin.dnf:
+        name: nodejs
+        state: latest
+
+    - name: add user expense
+      ansible.builtin.user:
+        name: expense
+
+    - name: cleaning directory
+      ansible.builtin.file:
+        path: /app
+        state: absent
+
+    - name: Create a directory
+      ansible.builtin.file:
+        path: /app
+        state: directory
 
 
+    - name: download content
+      ansible.builtin.unarchive:
+        src: https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip
+        dest: /app
+        remote_src: yes
 
+    - name: Udownload nodejs dependency
+      community.general.npm:
+        path: /app
+        state: latest
 
+    - name: copy backend.servicefile
+      ansible.builtin.copy:
+        scr: backend.service
+        dest: /etc/systemd/system/backend.service
 
+    - name: install mysql client
+      ansible.builtin.dnf:
+        name: mysql
+        state: installed
 
+    - name: load schema
+      community.mysql.mysql_db:
+        state: import
+        name: all
+        target: /app/schema/backend.sql
+          login_user: root
+          login_password:Anand@1
+          login_host: mysql-dev.janand.online
 
-
-
-
-
-
-  
+    - name: start backend
+      ansible.builtin.systemd_service:
+        name: backend
+        state: restarted
+        enabled: yes
+        demon_reload: yes
