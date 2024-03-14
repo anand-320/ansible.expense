@@ -8,7 +8,6 @@
     - name: enable nodejs:20
       ansible.builtin.service:
         name: nodejs
-        state: latest
         enabled: yes
 
     - name: install nodejs
