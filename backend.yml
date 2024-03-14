@@ -42,7 +42,7 @@
 
     - name: copy backend.service file
       ansible.builtin.copy:
-        scr: backend.service
+        src: backend.service
         dest: /etc/systemd/system/backend.service
 
     - name: install mysql client
