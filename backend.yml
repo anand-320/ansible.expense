@@ -40,15 +40,18 @@
         path: /app
         state: latest
 
-    - name: copy backend.service file
+    - name: copy backend service file
       ansible.builtin.copy:
         src: backend.service
         dest: /etc/systemd/system/backend.service
 
-    - name: install mysql client
-      ansible.builtin.dnf:
-        name: mysql
-        state: installed
+    - name: install python mysql client
+      ansible.builtin.pip:
+        name:
+          -bottle
+          -cryptography
+        state: pip3.9
+
 
     - name: load schema
       community.mysql.mysql_db:
