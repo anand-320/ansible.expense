@@ -58,7 +58,7 @@
         name: all
         target: /app/schema/backend.sql
         login_user: root
-        login_password: Anand@1
+        login_password: ExpenseApp@1
         login_host: mysql-dev.janand.online
 
     - name: start backend
