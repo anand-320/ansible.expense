@@ -27,12 +27,10 @@
         path: /app
         state: directory
 
-
-    - name: download content
-      ansible.builtin.unarchive:
-        src: https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip
+    - name: Download content
+      ansible.builtin.get_url:
+        url: https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip
         dest: /app
-        remote_src: yes
 
 
     - name: download nodejs dependency
