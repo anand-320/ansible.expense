@@ -31,6 +31,8 @@
       ansible.builtin.get_url:
         url: https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip
         dest: /app
+        remote_src: yes
+
 
 
     - name: download nodejs dependency
