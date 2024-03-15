@@ -46,9 +46,10 @@
     - name: install python mysql client
       ansible.builtin.pip:
         name:
-          - pymysql
+          - PyMySQL
           - cryptography
         state: pip3.9
+        state: latest
 
 
     - name: load schema
