@@ -1,4 +1,5 @@
 - name: frontend setup
   hosts: all
   become: true
-  tasks:
+  roles:
+    - frontend
