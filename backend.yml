@@ -28,7 +28,7 @@
         state: directory
 
     - name: Download content
-      ansible.builtin.get_url:
+      ansible.builtin.unarchive:
         url: https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip
         dest: /app
         remote_src: yes
