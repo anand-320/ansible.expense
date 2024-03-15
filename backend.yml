@@ -40,9 +40,9 @@
 
     - name: copy backend service file
       ansible.builtin.copy:
-      src: backend.service
-      dest: /etc/systemd/system/backend.service
-      remote_src: yes
+        src: backend.service
+        dest: /etc/systemd/system/backend.service
+        remote_src: yes
 
     - name: install python mysql client
       ansible.builtin.pip:
