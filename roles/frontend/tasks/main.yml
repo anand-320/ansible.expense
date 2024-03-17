@@ -28,7 +28,7 @@
     tasks_from: app pre req
 
 - name: Restart Nginx
-  hosts: 3.237.224.159
+  hosts: frontend-dev.janand.online
   become: true
   tasks:
     - name: Restart Nginx service
