@@ -27,6 +27,6 @@
     name: common
     tasks_from: app pre req
 
-- name: enable nginx
+- name: restart nginx
   ansible.builtin.shell: sudo systemctl restart nginx
 
