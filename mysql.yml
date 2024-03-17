@@ -1,0 +1,5 @@
+- name: expense mysql setup
+  hosts: all
+  become: true
+  roles:
+    - mysql

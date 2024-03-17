@@ -1,0 +1,5 @@
+- name: expense frontend setup
+  hosts: all
+  become: true
+  roles:
+    - frontend
