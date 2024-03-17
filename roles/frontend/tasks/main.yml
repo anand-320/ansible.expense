@@ -9,11 +9,11 @@
     src: expense.conf
     dest: /etc/nginx/default.d/expense.conf
 
-- name: enable nginx
-  ansible.builtin.service:
-    name: nginx
-    state: started
-    enable: yes
+#- name: enable nginx
+#  ansible.builtin.service:
+#    name: nginx
+#    state: started
+#    enable: yes
 
 - name: import app pre req
   ansible.builtin.import_role:
