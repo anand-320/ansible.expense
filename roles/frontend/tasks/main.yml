@@ -27,10 +27,16 @@
     name: common
     tasks_from: app pre req
 
-- name: start nginx
-  ansible.builtin.service:
+- name: Ensure Nginx service is started
+  systemd:
     name: nginx
     state: restarted
-
+    daemon_reload: yes
+    no_block: yes
+    enabled: yes
+  become: yes
+  become_user: root
+  tags:
+    - nginx
 
 
