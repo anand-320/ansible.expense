@@ -14,22 +14,11 @@
     state: started
 
 
-- name: cleaning directory
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: absent
+  name: import app pre req
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app pre req
 
-- name: Create a directory
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: directory
-
-
-- name: download content
-  ansible.builtin.unarchive:
-    src: https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip
-    dest: /usr/share/nginx/html
-    remote_src: yes
 
 - name: start nginx
   ansible.builtin.service:
