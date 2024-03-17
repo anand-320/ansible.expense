@@ -13,7 +13,6 @@
   ansible.builtin.service:
     name: nginx
     state: started
-    enable: yes
 
 - name: import app pre req
   ansible.builtin.import_role:
