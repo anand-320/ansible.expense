@@ -1,4 +1,3 @@
-  app_loc= frontend
 
 - name: install nginx
   ansible.builtin.dnf:
@@ -14,6 +13,11 @@
   ansible.builtin.service:
     name: nginx
     state: started
+
+- name: import app pre req
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app pre req
 
 - name: import app pre req
   ansible.builtin.import_role:
