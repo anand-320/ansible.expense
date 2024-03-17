@@ -10,7 +10,7 @@
     dest: /etc/nginx/default.d/expense.conf
 
 - name: enable nginx
-  ansible.builtin.systemd:
+  ansible.builtin.service:
     name: nginx
     state: started
     scope: system
