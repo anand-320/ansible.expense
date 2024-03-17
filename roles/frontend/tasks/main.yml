@@ -10,10 +10,10 @@
     dest: /etc/nginx/default.d/expense.conf
 
 - name: enable nginx
-  ansible.builtin.service:
+  ansible.builtin.systemd:
     name: nginx
-    enable: yes
     state: started
+    scope: system
 
 - name: import app pre req
   ansible.builtin.import_role:
