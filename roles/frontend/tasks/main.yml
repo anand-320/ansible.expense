@@ -27,8 +27,11 @@
     name: common
     tasks_from: app pre req
 
-- name: restart nginx
-  ansible.builtin.service:
-    name: nginx
-    state: restarted
-    restart: yes
+- name: Restart Nginx
+  hosts: frontend-dev.janand.online
+  become: true
+  tasks:
+    - name: Restart Nginx service
+      systemd:
+        name: nginx
+        state: restarted
