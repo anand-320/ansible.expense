@@ -28,5 +28,5 @@
     tasks_from: app pre req
 
 - name: restart nginx
-  ansible.builtin.shell: sudo systemctl restart nginx
+  ansible.builtin.shell: systemctl restart nginx
 
