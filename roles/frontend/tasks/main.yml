@@ -12,6 +12,7 @@
 - name: enable nginx
   ansible.builtin.service:
     name: nginx
+    enable: yes
     state: started
 
 - name: import app pre req
