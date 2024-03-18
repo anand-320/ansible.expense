@@ -15,7 +15,7 @@
     tasks_from: app pre req
 
 - name: Restart Nginx
-  ansible.builtin.system:
+  ansible.builtin.service:
     name: nginx
-    state: restarted
+    state: started
 
