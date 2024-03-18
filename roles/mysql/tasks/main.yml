@@ -23,7 +23,7 @@
     login_password: ExpenseApp@1
     login_host: mysql-dev.janand.online
     filter: version
-    register: mysql_connection_output
+  register: mysql_connection_output
 
 - name: print
   debug:
