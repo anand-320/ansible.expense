@@ -1,0 +1,25 @@
+format_version: 10
+pipelines:
+  frontend:
+    group: defaultGroup
+    materials:
+      git-7f8559b:
+        git: https://github.com/anand-320/ansible.expense.git
+        shallow_clone: false
+        auto_update: true
+        branch: main
+    stages:
+      - Dev:
+          fetch_materials: true
+          approval:
+            type: manual
+          jobs:
+            ansible-playbook:
+              timeout: 0
+              tasks:
+                - exec:
+                    arguments:
+                      - ansible.sh
+                      - frontend
+                    command: bash
+                    run_if: passed
