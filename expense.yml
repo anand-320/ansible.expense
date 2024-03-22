@@ -1,5 +1,5 @@
 - name: expense project setup
   hosts: all
-  become: true
+  become: yes
   roles:
     - "{{ role_name }}"
