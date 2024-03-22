@@ -11,6 +11,8 @@ pipelines:
     stages:
       - Dev:
           fetch_materials: true
+          environment_variables:
+            env=dev
           approval:
             type: manual
           jobs:
@@ -24,6 +26,8 @@ pipelines:
                     run_if: passed
       - QA:
           fetch_materials: true
+          environment_variables:
+            env=QA
           approval:
             type: manual
           jobs:
@@ -38,6 +42,8 @@ pipelines:
                     run_if: passed
       - STAGE:
           fetch_materials: true
+          environment_variables:
+            env=STAGE
           approval:
             type: manual
           jobs:
@@ -52,6 +58,8 @@ pipelines:
                     run_if: passed
       - PROD:
           fetch_materials: true
+          environment_variables:
+            env=PROD
           approval:
             type: manual
           jobs:
