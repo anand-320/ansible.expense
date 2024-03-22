@@ -19,7 +19,7 @@ pipelines:
               tasks:
                 - exec:
                     arguments:
-                      - ansible.sh
+                      - frontend.sh
                       - frontend
                     command: bash
                     run_if: passed
@@ -33,7 +33,7 @@ pipelines:
               tasks:
                 - exec:
                     arguments:
-                      - ansible.sh
+                      - frontend.sh
                       - frontend
                     command: bash
                     run_if: passed
@@ -47,7 +47,7 @@ pipelines:
               tasks:
                 - exec:
                     arguments:
-                      - ansible.sh
+                      - frontend.sh
                       - frontend
                     command: bash
                     run_if: passed
@@ -61,7 +61,7 @@ pipelines:
               tasks:
                 - exec:
                     arguments:
-                      - ansible.sh
+                      - frontend.sh
                       - frontend
                     command: bash
                     run_if: passed
