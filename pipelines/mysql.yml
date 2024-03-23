@@ -72,3 +72,4 @@ pipelines:
                       - mysql
                     command: bash
                     run_if: passed
+
