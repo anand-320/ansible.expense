@@ -15,7 +15,8 @@
     tasks_from: app pre req
 
 - name: Restart Nginx
-  ansible.builtin.service:
+  ansible.builtin.systemd_service:
     name: nginx
     state: restarted
+    enable: yes
 
