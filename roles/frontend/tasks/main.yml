@@ -14,9 +14,10 @@
     name: common
     tasks_from: app pre req
 
-- name: Restart Nginx
+- name: Start Nginx
   ansible.builtin.systemd_service:
-    name: nginx
     state: restarted
-    enable: yes
+    name: nginx
+    enabled: yes
+
 
