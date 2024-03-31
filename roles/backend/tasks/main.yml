@@ -7,16 +7,16 @@
 - name: install nodejs
   ansible.builtin.dnf:
     name: nodejs
-    state: latest
+    state: installed
 
 - name: add user expense
   ansible.builtin.user:
-    name: expense
+    name: "{{app_user}}"
 
 - name: import app pre req
   ansible.builtin.import_role:
       name: common
-      tasks_from: app pre req
+      tasks_from: app-pre-req
 
 - name: download nodejs dependency
   community.general.npm:
@@ -33,9 +33,12 @@
     name:
       - PyMySQL
       - cryptography
-    state: pip3.9
-    state: latest
+    executable: pip3.9
 
+- name: Install MySQL Client
+  ansible.builtin.dnf:
+    name: mysql
+    state: installed
 
 - name: load schema
   community.mysql.mysql_db:
@@ -43,13 +46,12 @@
     name: all
     target: /app/schema/backend.sql
     login_user: root
-    login_password: ExpenseApp@1
-    login_host: mysql-dev.janand.online
+    login_password: "{{mysql_root_password}}"
+    login_host: mysql-{{env}}.janand.online
 
-- name: start backend
+- name: Start Backend Service
   ansible.builtin.systemd_service:
     name: backend
     state: restarted
     enabled: yes
     daemon_reload: yes
-    restart: yes

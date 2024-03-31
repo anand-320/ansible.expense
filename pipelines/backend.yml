@@ -18,12 +18,12 @@ pipelines:
           jobs:
             ansible-playbook:
               tasks:
-                - exec:
-                    arguments:
-                      - ansible.sh
-                      - backend
-                    command: bash
-                    run_if: passed
+              - exec:
+                  arguments:
+                    - ansible.sh
+                    - backend
+                  command: bash
+                  run_if: passed
       - QA:
           fetch_materials: true
           environment_variables:
@@ -34,12 +34,12 @@ pipelines:
             ansible-playbook:
               timeout: 0
               tasks:
-                - exec:
-                    arguments:
-                      - ansible.sh
-                      - backend
-                    command: bash
-                    run_if: passed
+              - exec:
+                  arguments:
+                    - ansible.sh
+                    - backend
+                  command: bash
+                  run_if: passed
       - STAGE:
           fetch_materials: true
           environment_variables:
@@ -50,12 +50,12 @@ pipelines:
             ansible-playbook:
               timeout: 0
               tasks:
-                - exec:
-                    arguments:
-                      - ansible.sh
-                      - backend
-                    command: bash
-                    run_if: passed
+              - exec:
+                  arguments:
+                    - ansible.sh
+                    - backend
+                  command: bash
+                  run_if: passed
       - PROD:
           fetch_materials: true
           environment_variables:
@@ -66,9 +66,9 @@ pipelines:
             ansible-playbook:
               timeout: 0
               tasks:
-                - exec:
-                    arguments:
-                      - ansible.sh
-                      - backend
-                    command: bash
-                    run_if: passed
+              - exec:
+                  arguments:
+                    - ansible.sh
+                    - backend
+                  command: bash
+                  run_if: passed
