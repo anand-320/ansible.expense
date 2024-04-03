@@ -9,7 +9,7 @@ pipelines:
         auto_update: true
         branch: main
     stages:
-      - Dev:
+      - DEV:
           fetch_materials: true
           environment_variables:
             env: dev
@@ -27,12 +27,11 @@ pipelines:
       - QA:
           fetch_materials: true
           environment_variables:
-            env: QA
+            env: qa
           approval:
             type: manual
           jobs:
             ansible-playbook:
-              timeout: 0
               tasks:
               - exec:
                   arguments:
@@ -48,7 +47,6 @@ pipelines:
             type: manual
           jobs:
             ansible-playbook:
-              timeout: 0
               tasks:
               - exec:
                   arguments:
@@ -64,7 +62,6 @@ pipelines:
             type: manual
           jobs:
             ansible-playbook:
-              timeout: 0
               tasks:
               - exec:
                   arguments:
