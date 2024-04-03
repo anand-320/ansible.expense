@@ -1,2 +1,3 @@
 app_loc: /user/share/nginx/html
 component: frontend
+app_user: nginx
