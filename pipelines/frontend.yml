@@ -27,12 +27,11 @@ pipelines:
       - QA:
           fetch_materials: true
           environment_variables:
-            env: QA
+            env: qa
           approval:
             type: manual
           jobs:
             ansible-playbook:
-              timeout: 0
               tasks:
               - exec:
                   arguments:
@@ -43,12 +42,11 @@ pipelines:
       - STAGE:
           fetch_materials: true
           environment_variables:
-            env: STAGE
+            env: stage
           approval:
             type: manual
           jobs:
             ansible-playbook:
-              timeout: 0
               tasks:
               - exec:
                   arguments:
@@ -59,12 +57,11 @@ pipelines:
       - PROD:
           fetch_materials: true
           environment_variables:
-            env: PROD
+            env: prod
           approval:
             type: manual
           jobs:
             ansible-playbook:
-              timeout: 0
               tasks:
               - exec:
                   arguments:
